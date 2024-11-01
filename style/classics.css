@@ -17,3 +17,17 @@ a {
 body {
     background-color: rgba(17, 0, 77, 0.2);
 }
+
+.button_active {
+    background-color: #ff7f00;
+    transition: all 10ms;
+}
+
+.button_unactive {
+    background-color: gray;
+    transition: all 10ms;
+}
+
+.bold {
+    font-weight: 800;
+}
