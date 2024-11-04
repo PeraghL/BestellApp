@@ -12,7 +12,7 @@
      <!-- icon -->
       <link rel="shortcut icon" href="ref/icons/favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body onload="init()">
     <div class="head_container">
         <div class="header_left">
             <img src="ref/img/Bestell App-Logo.svg" alt="Bestell APP Logo">
@@ -26,7 +26,7 @@
             </div>
 
             <div class="main_content_wrap">
-                <div class="main_text">
+                <div class="main_text" onclick="showWindow()">
                     <h1>Delizioso</h1>
                     <a href="#"><img src="ref/icons/icons8-info-50.png" alt=""> Über Uns</a>
                  </div>
@@ -229,6 +229,80 @@
         </div>
     </div>
 
+    <div class="about_us_bg dp-none" id="about_us" onclick="closeWindow()">
+        <div class="about_us_info">
+            <div class="about_us_top">
+                <h4>Über dieses Geschäft</h4>
+                <img src="ref/icons/icons8-x-50.png" alt="" onclick="closeWindow()">
+            </div>
+            <div class="about_us_card">
+                <div class="about_us_card_top">
+                    <img src="ref/icons/icons8-karte-35.png" alt="">
+                    <h4>Anfahrt</h4>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d738.7099957795722!2d11.876214516748288!3d53.32192393775394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a551509611c8c1%3A0xacae6abadd1c1c1c!2sOrtsbruchstra%C3%9Fe%2015%2C%2038228%20Salzgitter!5e0!3m2!1sde!2sde!4v1730753932112!5m2!1sde!2sde" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="about_us_text">
+                <div class="about_us_card_top">
+                    <img src="ref/icons/icons8-gegenwart-35.png" alt="">
+                    <h4>Lieferzeiten</h4>
+                </div>
+            </div>
+            <div class="about_us_delivery_box">
+                <div class="about_us_delivery">
+                    <div class="about_us_delivery_days">
+                        <p>Montag</p>
+                        <P>12:00 - 22:00</p>
+                    </div>
+                    <div class="about_us_delivery_days">
+                        <p>Dienstag</p>
+                        <P>12:00 - 22:00</p>
+                    </div>
+                    <div class="about_us_delivery_days">
+                        <p>Mittwoch</p>
+                        <P>Geschlossen</p>
+                    </div>
+                    <div class="about_us_delivery_days">
+                        <p>Donnerstag</p>
+                        <P>12:00 - 22:00</p>
+                    </div>
+                    <div class="about_us_delivery_days">
+                        <p>Freitag</p>
+                        <P>12:00 - 00:00</p>
+                    </div>
+                    <div class="about_us_delivery_days">
+                        <p>Samstag</p>
+                        <P>12:00 - 00:00</p>
+                    </div>
+                    <div class="about_us_delivery_days">
+                        <p>Sonntag</p>
+                        <P>12:00 - 22:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about_us_text">
+                <div class="about_us_card_top">
+                    <img src="ref/icons/icons8-notiz-35.png" alt="">
+                    <h4>Gebühren</h4>
+                </div>
+                <div class="about_us_delivery_box">
+                    <div class="about_us_delivery">
+                        <div class="about_us_delivery_days">
+                            <p>Mindestbestellwert</p>
+                            <P>15 €</p>
+                        </div>
+                        <div class="about_us_delivery_days">
+                            <p>Lieferung</p>
+                            <P>3 €</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script src="js/extra.js"></script>
+    <script src="js/template.js"></script>
 </body>
 </html>

@@ -231,3 +231,113 @@
     padding-right: 30px;
     padding-bottom: 10px;
 }
+
+/* Abput us BG */
+
+.about_us_bg {
+    max-width: 100%;
+    width: 100VW;
+    height: 100vh;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.about_us_info {
+    width: 580px;
+    height: 780px;
+    background-color: #fff;
+    border-radius: 20px;
+    border: 1px solid;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.about_us_top {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+    align-items: center;
+}
+
+.about_us_top img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50px;
+    border: 1px solid;
+}
+
+.about_us_top h4 {
+    font-size: 32px;
+}
+
+.about_us_card {
+    max-width: 580px;
+    margin-top: 50px;
+}
+
+.about_us_card_top h4 {
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+}
+
+.about_us_card iframe {
+    width: 580px;
+    height: 150px;
+    border: 0px;
+}
+
+.about_us_card_top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.about_us_card_top img {
+    width: 25px;
+    height: 25px;
+}
+
+.about_us_delivery {
+    width: 420px;
+    background-color: #dadada;
+    border-radius: 1px solid;
+    border-radius: 20px;
+}
+
+.about_us_delivery_box {
+    display: flex;
+    justify-content: center;
+}
+
+.about_us_delivery_days {
+    padding: 10px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about_us_delivery_days:first-child {
+    padding-top: 20px;
+}
+
+.about_us_delivery_days:last-child {
+    padding-bottom: 20px;
+}
+
+.about_us_text {
+    padding-top: 20px;
+}
