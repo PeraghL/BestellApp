@@ -32,7 +32,8 @@
     position: sticky;
     top: 0;
     height: 100vh;
-    overflow-y: scroll
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .shopping_cart_body h2 {
@@ -63,6 +64,13 @@
 
 .sopping_cart_icon img {
     padding-top: 50px;
+}
+
+.shopping_card_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .sopping_cart_icon img {
@@ -224,6 +232,7 @@
     height: 35px;
     background-color: #fff;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .content_render p {
@@ -340,4 +349,103 @@
 
 .about_us_text {
     padding-top: 20px;
+}
+
+.about_us_delivery_box:last-child {
+    margin-bottom: 40px;
+}
+
+.shopping_menu_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 0;
+    gap: 18px;
+}
+
+.shopping_menu_item {
+    border: 1px solid;
+    margin: 16px 0px;
+    border-radius: 20px;
+}
+
+.shopping_menu_item p {
+    font-weight: bold;
+}
+
+.shopping_menu_item img {
+    cursor: pointer;
+}
+
+.shopping_cart_sales_info {
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.sales_button {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sales_button a {
+    padding: 10px 40px;
+    border: 1px solid;
+    border-radius: 20px;
+    background-color: #ff7f00;
+    cursor: pointer;
+}
+
+.sales_button a:hover {
+    padding: 10px 40px;
+    border: 1px solid;
+    border-radius: 20px;
+    background-color: #c06000;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.checkout_background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout_box {
+    width: 500px;
+    height: 200px;
+    background-color: #ececec;
+    border: 1px solid;
+    border-radius: 20px;
+}
+
+.checkout_info {
+    padding: 10px 10px;
+}
+
+.checkout_info h4 {
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 26px;
+}
+
+.checkout_info p {
+    padding: 10px 10px;
+    text-align: center;
+}
+
+.checkout_info_button {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
 }

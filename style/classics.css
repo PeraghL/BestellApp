@@ -20,12 +20,22 @@ body {
 
 .button_active {
     background-color: #ff7f00;
-    transition: all 10ms;
+    transition: all 0.3s;
 }
 
 .button_unactive {
     background-color: gray;
-    transition: all 10ms;
+    transition: all 0.3s;
+}
+
+.button_active:hover {
+    background-color: #ff7f00;
+    transition: all 0.3s;
+}
+
+.button_unactive:hover {
+    background-color: #ff7f00;
+    transition: all 0.3s;
 }
 
 .bold {
@@ -43,4 +53,26 @@ body {
 ::-webkit-scrollbar-thumb {
     background: black;
     border-radius: 5px;
+}
+
+.line {
+    width: 400px;
+    height: 2px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    padding: 8px 16px;
+    border: 1px solid;
+    border-radius: 20px;
+    background-color: #ff7f00;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #c06000;
+    transition: all 0.3s;
 }
