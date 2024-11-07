@@ -28,10 +28,14 @@ function renderCartItemHTML(item) {
 }
 
 function renderSummaryHTML(subtotal, delivery, total) {
-    return `
+  return `
       <div class="shopping_cart_sales_info_box">
-          <p>Zwischensumme: <span class="bold">${subtotal.toFixed(2)} €</span></p>
-          <p>Lieferkosten: <span class="bold">${delivery.toFixed(2)} €</span></p>
+          <p>Zwischensumme: <span class="bold">${subtotal.toFixed(
+            2
+          )} €</span></p>
+          <p>Lieferkosten: <span class="bold">${delivery.toFixed(
+            2
+          )} €</span></p>
           <p>Gesamt: <span class="bold">${total.toFixed(2)} €</span></p>
           <p id="minOrderMessage" class="warning-message dp-none"></p>
           <div class="sales_button">
@@ -39,4 +43,8 @@ function renderSummaryHTML(subtotal, delivery, total) {
           </div>
       </div>
     `;
-  }
+}
+
+function renderSummaryMobileHTML(total) {
+  return `<span>Warenkorb anzeigen (${total.toFixed(2)} €)</span>`;
+}

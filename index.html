@@ -55,7 +55,7 @@
                     <h3>Pizza</h3>
                     <p>Unsere Pizzen werden aus hausgemachtem Teig und den besten Zutaten zubereitet. Genießen Sie den authentischen Geschmack Italiens mit einer aromatischen Tomatensauce, Oregano und einem zarten Mozzarella-Gouda-Käse-Mix.</p>
                     <div class="pizza_container" id="pizzacontainer">
-                    <!-- Render -->
+                    <!-- Render Pizza -->
                     </div>
                 </div>
                 <div class="content_design" id="noodles">
@@ -64,7 +64,7 @@
                     <p>Unsere Pasta wird mit Sorgfalt zubereitet und bringt die Vielfalt der italienischen Küche auf Ihren Teller. Probieren Sie beliebte Klassiker wie Bolognese, Arrabbiata oder Pesto – jedes Gericht ein Geschmackserlebnis.</p>
 
                     <div class="pizza_container" id="nudelncontainer">
-                        <!-- Render -->
+                        <!-- Render Nudeln -->
                     </div>
                 </div>
                 <div class="content_design" id="salats">
@@ -73,7 +73,7 @@
                     <p>Frische, knackige Salate mit ausgewählten Zutaten und liebevoll abgeschmeckten Dressings. Perfekt für eine leichte Mahlzeit oder als Beilage, die das Geschmackserlebnis abrundet.</p>
 
                     <div class="pizza_container" id="salatecontainer">
-                        <!-- Render -->
+                        <!-- Render Salate -->
                     </div>
                 </div>
                 <div class="content_design" id="wraps">
@@ -82,13 +82,13 @@
                     <p>Unsere leckeren Wraps sind ideal für den kleinen Hunger. Gefüllt mit frischen Zutaten und einer Vielzahl an Aromen – perfekt für unterwegs oder als leichte Mahlzeit.</p>
 
                     <div class="pizza_container" id="wrapscontainer">
-                        <!-- Render -->
+                        <!-- Render Wraps -->
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="shopping_cart_body">
+        <div class="shopping_cart_body" id="shoppingMobile">
             <h2>Warenkorb</h2>
             <div class="shopping_cart_options">
                 <button class="button_active" onclick="selectDeliveryMode('lieferung')" id="deliveryButton"><span>Lieferung</span> <br> 15-40 Min</button>
@@ -104,10 +104,10 @@
                 </div>
             </div>
             <div class="render_shopping_box" id="cardContainer">
-                <!-- Render -->
+                <!-- Render Shopping Inhalt -->
             </div>
             <div class="shopping_cart_sales_info dp-none" id="checkoutInfoMain">
-                <!-- Render -->
+                <!-- Render Shopping Zahlen -->
             </div>
         </div>
     </div>
@@ -193,6 +193,17 @@
                     <a href="#" class="button" onclick="closeCheckoutWindow()">Schließen</a>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="">
+        <div class="cart_button" onclick="toggleCart()" id="mobileCheckout">
+        </div>
+    </div>
+
+    <div class="footer_container">
+        <div class="header_left">
+            <img src="ref/img/Bestell App-Logo.svg" alt="Bestell APP Logo">
         </div>
     </div>
 

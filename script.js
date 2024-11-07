@@ -1,11 +1,13 @@
 const minDelivery = 15;
 const deliveryFee = 3;
 let isDelivery = true;
+let isCartOpen = false;
 
 let cart = [];
 
 function init() {
   renderAllDishes();
+  renderCartSummary();
 }
 
 function renderAllDishes() {
@@ -35,7 +37,6 @@ function addToCart(name, price) {
     cart.push({ name: name, price: price, quantity: 1 });
   }
 
-  console.log(cart);
   renderCart();
   toogleCheckoutInfo();
 }
@@ -51,6 +52,7 @@ function renderCart() {
     cardContainer.innerHTML += renderCartItemHTML(cart[i]);
   }
   renderCartSummary();
+  updateCartButton();
 }
 
 function toogleCheckoutInfo() {
@@ -87,47 +89,60 @@ function decreaseQuantity(name) {
 }
 
 function selectDeliveryMode(mode) {
-    isDelivery = (mode === 'lieferung');
+  isDelivery = mode === "lieferung";
 
-    let deliveryButton = document.getElementById('deliveryButton');
-    let pickupButton = document.getElementById('pickupButton');
+  let deliveryButton = document.getElementById("deliveryButton");
+  let pickupButton = document.getElementById("pickupButton");
 
-    if (isDelivery) {
-        deliveryButton.classList.add('button_active');
-        deliveryButton.classList.remove('button_unactive');
-        pickupButton.classList.add('button_unactive');
-        pickupButton.classList.remove('button_active');
-    } else {
-        deliveryButton.classList.remove('button_active');
-        deliveryButton.classList.add('button_unactive');
-        pickupButton.classList.remove('button_unactive');
-        pickupButton.classList.add('button_active');
-    }
+  if (isDelivery) {
+    deliveryButton.classList.add("button_active");
+    deliveryButton.classList.remove("button_unactive");
+    pickupButton.classList.add("button_unactive");
+    pickupButton.classList.remove("button_active");
+  } else {
+    deliveryButton.classList.remove("button_active");
+    deliveryButton.classList.add("button_unactive");
+    pickupButton.classList.remove("button_unactive");
+    pickupButton.classList.add("button_active");
+  }
 
-    renderCartSummary();
+  renderCartSummary();
+  updateCartButton();
 }
 
 function renderCartSummary() {
-    let subtotal = calculateSubtotal();
-    let delivery = isDelivery ? deliveryFee : 0;
-    let total = subtotal + delivery;
-    let salesInfoContainer = document.getElementById("checkoutInfoMain");
-    
-    salesInfoContainer.innerHTML = renderSummaryHTML(subtotal, delivery, total);
+  let subtotal = calculateSubtotal();
+  let delivery = isDelivery ? deliveryFee : 0;
+  let total = subtotal + delivery;
+  let salesInfoContainer = document.getElementById("checkoutInfoMain");
+  let mobileSalesContainer = document.getElementById("mobileCheckout");
+
+  salesInfoContainer.innerHTML = renderSummaryHTML(subtotal, delivery, total);
+
+  if (cart.length > 0) {
+    mobileSalesContainer.innerHTML = renderSummaryMobileHTML(total);
+  } else {
+    mobileSalesContainer.innerHTML = renderSummaryMobileHTML(subtotal);
+  }
 }
 
-
 function calculateSubtotal() {
-    let subtotal = 0;
-    for (let i = 0; i < cart.length; i++) {
-        subtotal += cart[i].price * cart[i].quantity;
-    }
-    return subtotal;
+  let subtotal = 0;
+  for (let i = 0; i < cart.length; i++) {
+    subtotal += cart[i].price * cart[i].quantity;
+  }
+  return subtotal;
 }
 
 function clearCart() {
-    cart = [];
+  cart = [];
 
-    renderCart();
-    toogleCheckoutInfo();
+  renderCart();
+  toogleCheckoutInfo();
+}
+
+function removeFromCart(name) {
+  cart = cart.filter((item) => item.name !== name);
+  renderCart();
+  toogleCheckoutInfo();
 }
