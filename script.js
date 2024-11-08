@@ -2,7 +2,6 @@ const minDelivery = 15;
 const deliveryFee = 3;
 let isDelivery = true;
 let isCartOpen = false;
-
 let cart = [];
 
 function init() {
@@ -58,6 +57,7 @@ function renderCart() {
 function toogleCheckoutInfo() {
   let checkoutInfo = document.getElementById("checkoutInfo");
   let checkoutInfoMain = document.getElementById("checkoutInfoMain");
+
   if (cart.length > 0) {
     checkoutInfo.classList.add("dp-none");
     checkoutInfoMain.classList.remove("dp-none");
@@ -88,22 +88,22 @@ function decreaseQuantity(name) {
   renderCart();
 }
 
+function updateButtonStyles(button, addClass, removeClass) {
+  button.classList.add(addClass);
+  button.classList.remove(removeClass);
+}
+
 function selectDeliveryMode(mode) {
   isDelivery = mode === "lieferung";
-
   let deliveryButton = document.getElementById("deliveryButton");
   let pickupButton = document.getElementById("pickupButton");
 
   if (isDelivery) {
-    deliveryButton.classList.add("button_active");
-    deliveryButton.classList.remove("button_unactive");
-    pickupButton.classList.add("button_unactive");
-    pickupButton.classList.remove("button_active");
+    updateButtonStyles(deliveryButton, "button_active", "button_unactive");
+    updateButtonStyles(pickupButton, "button_unactive", "button_active");
   } else {
-    deliveryButton.classList.remove("button_active");
-    deliveryButton.classList.add("button_unactive");
-    pickupButton.classList.remove("button_unactive");
-    pickupButton.classList.add("button_active");
+    updateButtonStyles(deliveryButton, "button_unactive", "button_active");
+    updateButtonStyles(pickupButton, "button_active", "button_unactive");
   }
 
   renderCartSummary();
@@ -116,7 +116,6 @@ function renderCartSummary() {
   let total = subtotal + delivery;
   let salesInfoContainer = document.getElementById("checkoutInfoMain");
   let mobileSalesContainer = document.getElementById("mobileCheckout");
-
   salesInfoContainer.innerHTML = renderSummaryHTML(subtotal, delivery, total);
 
   if (cart.length > 0) {
@@ -128,6 +127,7 @@ function renderCartSummary() {
 
 function calculateSubtotal() {
   let subtotal = 0;
+  
   for (let i = 0; i < cart.length; i++) {
     subtotal += cart[i].price * cart[i].quantity;
   }
@@ -136,7 +136,6 @@ function calculateSubtotal() {
 
 function clearCart() {
   cart = [];
-
   renderCart();
   toogleCheckoutInfo();
 }
@@ -145,4 +144,51 @@ function removeFromCart(name) {
   cart = cart.filter((item) => item.name !== name);
   renderCart();
   toogleCheckoutInfo();
+}
+
+function closeWindow() {
+  let about = document.getElementById("about_us");
+  about.classList.add("dp-none");
+}
+
+function showWindow() {
+  let about = document.getElementById("about_us");
+  about.classList.remove("dp-none");
+}
+
+function closeCheckoutWindow() {
+  let about = document.getElementById("checkout");
+  about.classList.add("dp-none");
+}
+
+function showCheckoutWindow() {
+  let subtotal = calculateSubtotal();
+
+  if (subtotal >= minDelivery) {
+    let about = document.getElementById("checkout");
+    about.classList.remove("dp-none");
+    clearCart();
+  } else {
+    let minOrderMessage = document.getElementById("minOrderMessage");
+    minOrderMessage.textContent = `Der Mindestbestellwert beträgt ${minDelivery} €. Aktuelle Zwischensumme: ${subtotal.toFixed(
+      2
+    )} €`;
+    minOrderMessage.classList.remove("dp-none");
+  }
+}
+
+function updateCartButton() {
+  let cartButton = document.getElementById("mobileCheckout");
+  if (isCartOpen) {
+    cartButton.innerHTML = `<span>Schließen</span>`;
+  } else {
+    cartButton.innerHTML = renderSummaryMobileHTML(calculateSubtotal());
+  }
+}
+
+function toggleCart() {
+  let cartDialog = document.getElementById("shoppingMobile");
+  cartDialog.classList.toggle("dp-none");
+  isCartOpen = !isCartOpen;
+  updateCartButton();
 }
